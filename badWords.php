@@ -2,8 +2,9 @@
 $testo = $_GET["text"];
 $parola = $_GET["badword"];
 
-$fixedText = str_replace($parola, "***", strtolower($testo));
+$fixedText = str_replace(strtolower($parola), "***", strtolower($testo));
 $textLength = strlen($fixedText);
+$numOfWords = substr_count($fixedText, " ") + 1;
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +30,9 @@ $textLength = strlen($fixedText);
 
         <p>Lunghezza testo:
             <?php echo $textLength ?>
+        </p>
+        <p>Numero di parole nella frase:
+            <?php echo $numOfWords ?>
         </p>
     </div>
 </body>
