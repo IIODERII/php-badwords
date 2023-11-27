@@ -5,6 +5,8 @@ $parola = $_GET["badword"];
 $fixedText = str_replace(strtolower($parola), "***", strtolower($testo));
 $textLength = strlen($fixedText);
 $numOfWords = substr_count($fixedText, " ") + 1;
+$censuredWords = substr_count($fixedText, "***");
+$fixedText = ucfirst(str_replace(strtolower($parola), "<strong class='text-danger'>***</strong>", strtolower($testo)));
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +35,9 @@ $numOfWords = substr_count($fixedText, " ") + 1;
         </p>
         <p>Numero di parole nella frase:
             <?php echo $numOfWords ?>
+        </p>
+        <p>Numero di parole censurate:
+            <?php echo $censuredWords ?>
         </p>
     </div>
 </body>
